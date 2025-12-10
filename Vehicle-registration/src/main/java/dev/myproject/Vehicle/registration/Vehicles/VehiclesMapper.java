@@ -1,5 +1,8 @@
 package dev.myproject.Vehicle.registration.Vehicles;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class VehiclesMapper {
 
     public VehiclesModel map(VehicleDTO dto) {
