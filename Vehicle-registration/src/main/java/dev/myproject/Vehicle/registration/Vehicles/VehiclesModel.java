@@ -20,7 +20,7 @@ public class VehiclesModel {
     @Column (name = "ID")
     private Long id;
 
-    @Column(name = "Type")
+    @Column(name = "vehicle_type", columnDefinition = "VARCHAR(255)")
     @Enumerated(EnumType.STRING)
     private SegmentEnum type;
 
@@ -33,7 +33,7 @@ public class VehiclesModel {
     @Column (name = "Price")
     private int price;
 
-    @Column (name = "Year")
+    @Column (name = "vehicle_year")
     private int year;
 
 
