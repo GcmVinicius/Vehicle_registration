@@ -27,8 +27,11 @@ public class VehicleService {
     //List by ID
     public VehicleDTO listById(Long id){
         Optional<VehiclesModel> vehicleById = vehicleRepository.findById(id);
-        return vehicleById.map(vehiclesMapper::map).orElse(null);
+        return vehicleById.map(vehiclesMapper::map)
+                .orElse(null);
     }
+
+    //add
     public VehicleDTO addVehicle(VehicleDTO vehicleDTO){
     VehiclesModel vehicle = vehiclesMapper.map(vehicleDTO);
     vehicle = vehicleRepository.save(vehicle);
@@ -40,6 +43,7 @@ public class VehicleService {
     vehicleRepository.deleteById(id);
     }
 
+    //alter
     public VehicleDTO alterVehicle(Long id, VehicleDTO vehicleDTO){
     Optional<VehiclesModel> existingVehicle = vehicleRepository.findById(id);
     if (existingVehicle.isPresent()){
