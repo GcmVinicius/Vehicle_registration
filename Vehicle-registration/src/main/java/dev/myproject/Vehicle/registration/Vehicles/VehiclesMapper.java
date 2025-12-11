@@ -12,7 +12,9 @@ public class VehiclesMapper {
 
         VehiclesModel model = new VehiclesModel();
 
+        model.setId(dto.getId());
 
+        model.setType(dto.getType());
 
         model.setType(dto.getType());
         model.setBrand(dto.getBrand());

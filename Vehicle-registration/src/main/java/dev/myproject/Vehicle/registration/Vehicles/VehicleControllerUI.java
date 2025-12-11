@@ -54,4 +54,31 @@ public class VehicleControllerUI {
     redirectAttributes.addFlashAttribute("message", "Sucefull registration");
     return "redirect:/vehicle/ui/list";
     }
+
+    @GetMapping("/edit/{id}")
+    public String showEditForm(@PathVariable Long id, Model model) {
+        VehicleDTO vehicleToEdit = vehicleService.listById(id);
+
+        if (vehicleToEdit != null) {
+            model.addAttribute("vehicles", vehicleToEdit);
+            return "addVehicle";
+        } else {
+            model.addAttribute("message", "Vehicle not found!");
+            return "redirect:/vehicle/ui/list";
+        }
+
+
+    }
+
+    @PostMapping("/update")
+    public String updateVehicle(@ModelAttribute VehicleDTO vehicle, RedirectAttributes redirectAttributes) {
+        if (vehicle.getId() != null) {
+            vehicleService.alterVehicle(vehicle.getId(), vehicle);
+            redirectAttributes.addFlashAttribute("message", "Vehicle updated successfully!");
+        } else {
+            vehicleService.addVehicle(vehicle);
+            redirectAttributes.addFlashAttribute("message", "Successful registration!");
+        }
+        return "redirect:/vehicle/ui/list";
+    }
 }

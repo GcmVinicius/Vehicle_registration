@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Add Vehicle</title>
+    <title>Add/Edit Vehicle</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -65,10 +65,13 @@
     </style>
 </head>
 <body>
-<h1>Add New Vehicle</h1>
+<h1 th:text="${vehicles.id} ? 'Edit Vehicle' : 'Add New Vehicle'">Add/Edit Vehicle</h1>
+
 <div class="form-container">
 
-    <form th:action="@{/vehicle/ui/save}" th:object="${vehicles}" method="post">
+    <form th:action="@{/vehicle/ui/update}" th:object="${vehicles}" method="post">
+
+        <input type="hidden" th:field="*{id}" />
 
         <label for="type">Type:</label>
         <input type="text" id="type" th:field="*{type}" required />
@@ -88,7 +91,7 @@
         <label for="imgUrl">Image URL:</label>
         <input type="text" id="imgUrl" th:field="*{imgUrl}" />
 
-        <button type="submit">Register Vehicle</button>
+        <button type="submit" th:text="${vehicles.id} ? 'Save Changes' : 'Register Vehicle'">Register/Save</button>
     </form>
 
     <a th:href="@{/vehicle/ui/list}" class="back-link">Back to Vehicle List</a>
