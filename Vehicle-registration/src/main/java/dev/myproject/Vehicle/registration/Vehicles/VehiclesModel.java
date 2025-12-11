@@ -20,9 +20,8 @@ public class VehiclesModel {
     @Column (name = "ID")
     private Long id;
 
-    @Column(name = "vehicle_type", columnDefinition = "VARCHAR(255)")
-    @Enumerated(EnumType.STRING)
-    private SegmentEnum type;
+    @Column(name = "vehicle_type")
+    private String type;
 
     @Column (name = "Brand")
     private String brand;

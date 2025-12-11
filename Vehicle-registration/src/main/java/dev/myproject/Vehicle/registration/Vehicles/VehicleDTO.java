@@ -15,7 +15,7 @@ public class VehicleDTO {
 
     private Long id;
 
-    private SegmentEnum type;
+    private String type;
 
     private String brand;
 

@@ -19,6 +19,7 @@ public class VehicleService {
     //List all vehicles
     public List<VehicleDTO> listVehicles(){
         List<VehiclesModel> vehicles = vehicleRepository.findAll();
+
         return vehicles.stream()
                 .map(vehiclesMapper::map)
                 .collect(Collectors.toList());
