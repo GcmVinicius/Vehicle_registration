@@ -24,6 +24,15 @@
             margin: 20px auto;
         }
 
+        /* Estilo para a imagem destacada */
+        .details-container img {
+            display:block;
+            margin: 0 auto 20px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
         .detail-item {
             font-size: 16px;
             color: #555;
@@ -34,7 +43,7 @@
         .detail-item strong {
             color: #333;
             display: inline-block;
-            width: 120px;
+            width: 150px; /* Aumentado para melhor alinhamento */
         }
 
         h2 {
@@ -67,10 +76,16 @@
 <h1>Vehicle Details</h1>
 <div class="details-container">
 
+    <img th:src="${vehicles.imgUrl}" width="400" alt="Vehicle Image"/>
+
     <h2 th:text="${vehicles.brand} + ' ' + ${vehicles.model}">Brand Model</h2>
 
     <div class="detail-item">
         <strong>ID:</strong> <span th:text="${vehicles.id}"></span>
+    </div>
+
+    <div class="detail-item">
+        <strong>Type:</strong> <span th:text="${vehicles.type}"></span>
     </div>
 
     <div class="detail-item">
@@ -87,6 +102,10 @@
 
     <div class="detail-item">
         <strong>Price:</strong> <span th:text="${'US$' + #numbers.formatDecimal(vehicles.price, 0, 'COMMA', 2, 'POINT')}"></span>
+    </div>
+
+    <div class="detail-item">
+        <strong>Image URL:</strong> <span th:text="${vehicles.imgUrl}"></span>
     </div>
 
 </div>

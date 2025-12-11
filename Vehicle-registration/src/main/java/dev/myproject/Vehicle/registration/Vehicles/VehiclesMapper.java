@@ -19,6 +19,7 @@ public class VehiclesMapper {
         model.setModel(dto.getModel());
         model.setPrice(dto.getPrice());
         model.setYear(dto.getYear());
+        model.setImgUrl(dto.getImgUrl());
 
         return model;
     }
@@ -37,6 +38,7 @@ public class VehiclesMapper {
         dto.setModel(model.getModel());
         dto.setPrice(model.getPrice());
         dto.setYear(model.getYear());
+        dto.setImgUrl(model.getImgUrl());
 
         return dto;
     }

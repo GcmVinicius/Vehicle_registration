@@ -25,5 +25,5 @@ public class VehicleDTO {
 
     private int year;
 
-
+    private String imgUrl;
 }

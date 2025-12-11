@@ -36,5 +36,9 @@ public class VehiclesModel {
     private int year;
 
 
+    @Column (name = "img_url")
+    private String imgUrl;
+
+
 
 }

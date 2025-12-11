@@ -36,14 +36,14 @@
             margin-bottom: 15px;
             border: 1px solid #ddd;
             border-radius: 4px;
-            box-sizing: border-box; /* Para incluir padding e border no width total */
+            box-sizing: border-box;
         }
 
         button[type="submit"] {
             padding: 10px 15px;
             border: none;
             border-radius: 5px;
-            background-color: #28a745; /* Green for save/add */
+            background-color: #28a745;
             color: white;
             cursor: pointer;
             transition: background-color 0.3s;
@@ -70,6 +70,9 @@
 
     <form th:action="@{/vehicle/ui/save}" th:object="${vehicles}" method="post">
 
+        <label for="type">Type:</label>
+        <input type="text" id="type" th:field="*{type}" required />
+
         <label for="brand">Brand:</label>
         <input type="text" id="brand" th:field="*{brand}" required />
 
@@ -81,6 +84,9 @@
 
         <label for="price">Price:</label>
         <input type="number" id="price" th:field="*{price}" required />
+
+        <label for="imgUrl">Image URL:</label>
+        <input type="text" id="imgUrl" th:field="*{imgUrl}" />
 
         <button type="submit">Register Vehicle</button>
     </form>
