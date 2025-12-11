@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Vehicle Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .details-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .detail-item {
+            font-size: 16px;
+            color: #555;
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .detail-item strong {
+            color: #333;
+            display: inline-block;
+            width: 120px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            text-align: center;
+            width: 200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .back-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<h1>Vehicle Details</h1>
+<div class="details-container">
+
+    <h2 th:text="${vehicles.brand} + ' ' + ${vehicles.model}">Brand Model</h2>
+
+    <div class="detail-item">
+        <strong>ID:</strong> <span th:text="${vehicles.id}"></span>
+    </div>
+
+    <div class="detail-item">
+        <strong>Brand:</strong> <span th:text="${vehicles.brand}"></span>
+    </div>
+
+    <div class="detail-item">
+        <strong>Model:</strong> <span th:text="${vehicles.model}"></span>
+    </div>
+
+    <div class="detail-item">
+        <strong>Year:</strong> <span th:text="${vehicles.year}"></span>
+    </div>
+
+    <div class="detail-item">
+        <strong>Price:</strong> <span th:text="${'US$' + #numbers.formatDecimal(vehicles.price, 0, 'COMMA', 2, 'POINT')}"></span>
+    </div>
+
+</div>
+
+<a th:href="@{/vehicle/ui/list}" class="back-link">Back to List</a>
+</body>
+</html>
